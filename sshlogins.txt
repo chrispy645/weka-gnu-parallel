@@ -1,0 +1,6 @@
+# number_of_cores/remote_host_name
+
+4/cms-r1-19.cms.waikato.ac.nz
+4/cms-r1-20.cms.waikato.ac.nz
+4/cms-r1-21.cms.waikato.ac.nz
+4/cms-r1-22.cms.waikato.ac.nz

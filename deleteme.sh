@@ -1,0 +1,1 @@
+echo $REMOTE_NAME

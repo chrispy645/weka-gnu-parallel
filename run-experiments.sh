@@ -7,4 +7,4 @@ parallel -k \
 --sshloginfile sshlogins.txt \
 --env EXPERIMENT_DIR \
 --results results \
-'foo/weka-j48-2params.sh {1} {2} {3}'
+'$EXPERIMENT_DIR/weka-j48-2params.sh {1} {2} {3}'

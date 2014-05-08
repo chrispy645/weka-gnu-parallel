@@ -2,7 +2,7 @@ trainfile=$1
 C_param=$2
 M_param=$3
 
-cd $EXPERIMENT_DIR
+cd $WGP_EXPERIMENT_DIR
 
 echo
 echo "###################"

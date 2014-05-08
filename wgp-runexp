@@ -1,10 +1,14 @@
 #!/bin/bash
 
+#WGP_SCRIPT=$WGP_EXPERIMENT_DIR/local/$WGP_EXPERIMENT_SCRIPT
+#echo "Running: "$WGP_SCRIPT
+#echo "Hostname: "$HOSTNAME
+
 parallel -k \
--a param-input.txt \
+-a foo/param-input.txt \
 --colsep ' ' \
 --no-notice \
---sshloginfile sshlogins.txt \
---env EXPERIMENT_DIR \
+--sshloginfile foo/sshlogins.txt \
+--env WGP_EXPERIMENT_DIR \
 --results results \
-'$EXPERIMENT_DIR/weka-j48-2params.sh {1} {2} {3}'
+'./foo/weka-j48-2params.sh {1} {2} {3}'

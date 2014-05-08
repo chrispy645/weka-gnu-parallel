@@ -1,0 +1,12 @@
+weather.nominal.arff 0.25 2
+weather.nominal.arff 0.25 4
+weather.nominal.arff 0.25 8
+weather.nominal.arff 0.25 16
+weather.nominal.arff 0.5 2
+weather.nominal.arff 0.5 4
+weather.nominal.arff 0.5 8
+weather.nominal.arff 0.5 16
+weather.nominal.arff 1.0 2
+weather.nominal.arff 1.0 4
+weather.nominal.arff 1.0 8
+weather.nominal.arff 1.0 16

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ -z $EXPERIMENT_DIR ] || [ -z $REMOTE_NAME ]; then
+if [ -z $WGP_EXPERIMENT_DIR ] || [ -z $WGP_REMOTE_NAME ]; then
 	echo "Have you sourced your project's env.sh file?"
 	exit 1
 fi
 
 # Copies experimental directory to remote directory.
 
-echo "Copying directory: "$EXPERIMENT_DIR
-echo "To: "$REMOTE_NAME:$EXPERIMENT_DIR
+echo "Copying directory: "$WGP_EXPERIMENT_DIR
+echo "To: "$WGP_REMOTE_NAME:$WGP_EXPERIMENT_DIR
 
-scp -r $EXPERIMENT_DIR/remote $REMOTE_NAME:$EXPERIMENT_DIR
+scp -r $WGP_EXPERIMENT_DIR $WGP_REMOTE_NAME:

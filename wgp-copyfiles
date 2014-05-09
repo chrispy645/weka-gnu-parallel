@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WPG_EXPERIMENT_DIR=$1
+WGP_EXPERIMENT_DIR=$1
 
 if [ -z $WGP_EXPERIMENT_DIR ]; then
 	echo "You must specify a directory to copy to the remote machine."

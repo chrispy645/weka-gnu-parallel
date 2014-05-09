@@ -1,14 +1,21 @@
 #!/bin/bash
 
-#WGP_SCRIPT=$WGP_EXPERIMENT_DIR/local/$WGP_EXPERIMENT_SCRIPT
-#echo "Running: "$WGP_SCRIPT
-#echo "Hostname: "$HOSTNAME
+WGP_SCRIPT=$1
+
+if [ -z $WGP_SCRIPT ]; then
+	echo "Need to provide dir to script file on remote!"
+	exit 1
+fi
+
+echo "Running script on remote: "$WGP_SCRIPT
+
+export WGP_SCRIPT
 
 parallel -k \
 -a foo/param-input.txt \
 --colsep ' ' \
 --no-notice \
 --sshloginfile foo/sshlogins.txt \
---env WGP_EXPERIMENT_DIR \
 --results results \
-'./foo/weka-j48-2params.sh {1} {2} {3}'
+--env WGP_SCRIPT \
+$WGP_SCRIPT ::: {1} {2} {3}

@@ -4,7 +4,10 @@
 # necessary variables.
 
 # The folder name of your experiment (i.e. foo)
-export WGP_EXPERIMENT_DIR="foo"
+# export WGP_EXPERIMENT_DIR="foo"
 
 # Name of any random remote machine (assumes that all remote machines use the same filesystem)
 export WGP_REMOTE_NAME="cms-r1-25.cms.waikato.ac.nz"
+
+# Max number of processes to use on one remote machine
+export WGP_MAXPROC=2

@@ -1,4 +1,9 @@
 #!/bin/bash
 
+if [ -z $WGP_REMOTE_NAME ]; then
+	echo "WGP_REMOTE_NAME not defined - have you sourced your env.sh?"
+	exit 1
+fi
+
 ssh-keygen
-ssh-copy-id -i ~/.ssh/id_rsa.pub $REMOTE_NAME
+ssh-copy-id -i ~/.ssh/id_rsa.pub $WGP_REMOTE_NAME

@@ -7,15 +7,19 @@ if [ -z $WGP_SCRIPT ]; then
 	exit 1
 fi
 
+WGP_SSHLOGINS=$(dirname ${WGP_SCRIPT})"/sshlogins.txt"
+
 echo "Running script on remote: "$WGP_SCRIPT
+echo "SSH file: "$WGP_SSHLOGINS
 
 export WGP_SCRIPT
 
 parallel -k \
+--max-procs=$WGP_MAXPROC \
 -a foo/param-input.txt \
 --colsep ' ' \
 --no-notice \
---sshloginfile foo/sshlogins.txt \
+--sshloginfile $WGP_SSHLOGINS \
 --results results \
 --env WGP_SCRIPT \
 $WGP_SCRIPT ::: {1} {2} {3}

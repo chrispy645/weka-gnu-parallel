@@ -1,5 +1,7 @@
 #!/bin/bash
 
+WPG_EXPERIMENT_DIR=$1
+
 if [ -z $WGP_EXPERIMENT_DIR ] || [ -z $WGP_REMOTE_NAME ]; then
 	echo "Have you sourced your project's env.sh file?"
 	exit 1

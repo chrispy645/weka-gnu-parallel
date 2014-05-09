@@ -2,8 +2,15 @@
 
 WPG_EXPERIMENT_DIR=$1
 
-if [ -z $WGP_EXPERIMENT_DIR ] || [ -z $WGP_REMOTE_NAME ]; then
-	echo "Have you sourced your project's env.sh file?"
+if [ -z $WGP_EXPERIMENT_DIR ]; then
+	echo "You must specify a directory to copy to the remote machine."
+	echo "E.g. wgp-copyfiles foo"
+	exit 1
+fi
+
+if [ -z $WGP_REMOTE_NAME ]; then
+	echo "You must specify the name of the remote machine to copy the directory to."
+	echo "Have you sourced env.sh in your experiment folder?"
 	exit 1
 fi
 

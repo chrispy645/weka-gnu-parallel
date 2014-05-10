@@ -27,4 +27,5 @@ weka-j48-2params.sh weather.nominal.arff 0.25 4
 ...
 ```
 
+It is up to the experiment script to determine how these 3 parameters are handled. In our case the first argument specifies the training file, and the last 2 arguments specify the values of 2 particular parameters in J48.
 

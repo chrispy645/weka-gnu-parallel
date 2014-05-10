@@ -8,6 +8,7 @@ if [ -z $WGP_SCRIPT ]; then
 fi
 
 WGP_SSHLOGINS=$(dirname ${WGP_SCRIPT})"/sshlogins.txt"
+WGP_PARAMINPUT=$(dirname ${WGP_SCRIPT})"/param-input.txt"
 
 echo "Running script on remote: "$WGP_SCRIPT
 echo "SSH file: "$WGP_SSHLOGINS
@@ -16,7 +17,7 @@ export WGP_SCRIPT
 
 parallel -k \
 --max-procs=$WGP_MAXPROC \
--a foo/param-input.txt \
+-a $WGP_PARAMINPUT \
 --colsep ' ' \
 --no-notice \
 --sshloginfile $WGP_SSHLOGINS \

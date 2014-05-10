@@ -21,6 +21,5 @@ parallel -k \
 --colsep ' ' \
 --no-notice \
 --sshloginfile $WGP_SSHLOGINS \
---results results \
 --env WGP_SCRIPT \
 $WGP_SCRIPT ::: {1} {2} {3}

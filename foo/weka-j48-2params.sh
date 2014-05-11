@@ -1,6 +1,8 @@
-trainfile=$1
-C_param=$2
-M_param=$3
+arr=($1)
+
+trainfile=${arr[0]}
+C_param=${arr[1]}
+M_param=${arr[2]}
 
 cd $(dirname ${WGP_SCRIPT})
 

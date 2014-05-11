@@ -16,10 +16,11 @@ echo "SSH file: "$WGP_SSHLOGINS
 export WGP_SCRIPT
 
 parallel -k \
+-N 2 \
 --max-procs=$WGP_MAXPROC \
 -a $WGP_PARAMINPUT \
 --colsep ' ' \
 --no-notice \
 --sshloginfile $WGP_SSHLOGINS \
 --env WGP_SCRIPT \
-$WGP_SCRIPT ::: {1} {2} {3}
+$WGP_SCRIPT ::: {1} {2}

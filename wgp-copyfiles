@@ -19,4 +19,11 @@ fi
 echo "Copying directory: "$WGP_EXPERIMENT_DIR
 echo "To: "$WGP_REMOTE_NAME:$WGP_EXPERIMENT_DIR
 
-scp -r $WGP_EXPERIMENT_DIR $WGP_REMOTE_NAME:
+#scp -r $WGP_EXPERIMENT_DIR $WGP_REMOTE_NAME:
+
+# make sure the directory exists first!
+# mkdir will do nothing if the directory already exists
+ssh $WGP_REMOTE_NAME mkdir -p $WGP_EXPERIMENT_DIR
+
+# recursive, update, and verbose
+rsync -ruv $WGP_EXPERIMENT_DIR/* $WGP_REMOTE_NAME:$WGP_EXPERIMENT_DIR

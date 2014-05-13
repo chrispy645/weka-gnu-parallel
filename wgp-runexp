@@ -1,23 +1,29 @@
 #!/bin/bash
 
 WGP_SCRIPT=$1
+WGP_PARAMS=$2
 
 if [ -z $WGP_SCRIPT ]; then
-	echo "Need to provide dir to script file on remote!"
-	exit 1
+    echo "Need to provide dir to script file on remote!"
+    exit 1
+fi
+
+if [ -z $WGP_PARAMS ]; then
+    echo "Need to provide dir to params file on remote!"
+    exit 1
 fi
 
 WGP_SSHLOGINS=$(dirname ${WGP_SCRIPT})"/sshlogins.txt"
-WGP_PARAMINPUT=$(dirname ${WGP_SCRIPT})"/param-input.txt"
 
 echo "Running script on remote: "$WGP_SCRIPT
+echo "Params file on remote: "$WGP_PARAMS
 echo "SSH file: "$WGP_SSHLOGINS
 
 export WGP_SCRIPT
 
 parallel -k \
 --max-procs=$WGP_MAXPROC \
--a $WGP_PARAMINPUT \
+-a $WGP_PARAMS \
 --no-notice \
 --sshloginfile $WGP_SSHLOGINS \
 --env WGP_SCRIPT \

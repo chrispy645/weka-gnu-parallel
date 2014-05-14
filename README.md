@@ -9,7 +9,7 @@ In general, how this works is that you have an "experiment folder", i.e. `foo`. 
 
 After sourcing `foo/env.sh`, we run `wgp-copyfiles foo` which will automatically copy the folder to a remote machine. I say "a remote machine" because I'm assuming that if you were running this experiment in parallel over several remote machines, you only need to copy the files to one of them (since there is a shared filesystem). If that is not the case then you might have to do some extra work to get things up and running (sorry!).
 
-Then we run `wgp-runexp foo/weka-j48-2params.sh > RESULTS.txt`. What this does is that it invokes GNU Parallel, which will run `foo/weka-j48-2params.sh` on the remote machines in parallel. Now this is where `param-input.txt` comes in. If you look at `param-input.txt` you'll see that the first two lines are:
+Then we run `wgp-runexp foo/weka-j48-2params.sh foo/param-input.txt > RESULTS.txt`. What this does is that it invokes GNU Parallel, which will run `foo/weka-j48-2params.sh` on the remote machines in parallel. Now this is where `param-input.txt` comes in. If you look at `param-input.txt` you'll see that the first two lines are:
 
 ```
 weather.nominal.arff 0.25 2
@@ -21,11 +21,11 @@ weather.nominal.arff 0.25 4
 This means that the script will be run in parallel like so:
 
 ```
-weka-j48-2params.sh weather.nominal.arff 0.25 2
-weka-j48-2params.sh weather.nominal.arff 0.25 4
+weka-j48-2params.sh "weather.nominal.arff 0.25 2"
+weka-j48-2params.sh "weather.nominal.arff 0.25 4"
 ...
 ...
 ```
 
-It is up to the experiment script to determine how these 3 parameters are handled. In our case the first argument specifies the training file, and the last 2 arguments specify the values of 2 particular parameters in J48.
+It is up to the experiment script to determine what to do with the string that was passed to it. In our case the string is split by spaces, so that the first argument specifies the training file, and the last 2 arguments specify the values of 2 particular parameters in J48.
 
